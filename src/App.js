@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from './components/hooks/Main'
+import Main from './components/forms/form-two/Main'
 
 const App = () => {
   return (

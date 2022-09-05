@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import Main from "./Main";
 
-test("submit button clicked", async () => {
+test("count incremented on click", async () => {
   // ARRANGE
   render(<Main />);
 

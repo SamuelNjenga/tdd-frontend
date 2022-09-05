@@ -1,9 +1,11 @@
 import React from 'react'
+import Main from './components/forms/form-one/Main'
 
 const App = () => {
   return (
     <div>
       <p>Test Driven Development in REACT</p>
+      <Main />
     </div>
   )
 }

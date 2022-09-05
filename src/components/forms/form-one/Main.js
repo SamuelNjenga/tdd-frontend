@@ -2,10 +2,16 @@ import React, { useState } from "react";
 
 const Main = () => {
   const [name, setName] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.alert("SUCCESSFUL");
+    setSuccess(true);
+    setName("");
+  };
+
+  const resetAlert = () => {
+    setSuccess(false);
     setName("");
   };
 
@@ -18,10 +24,18 @@ const Main = () => {
           onChange={(e) => setName(e.target.value)}
           placeholder="name"
         />
-        <button type="submit" disabled={name === "sam" ? true : false}>
+        {success && <p role="alert">SUCCESSFUL</p>}
+        <button
+          type="submit"
+          disabled={name === "sam" ? true : false}
+          style={{ marginLeft: "10px" }}
+        >
           SUBMIT
         </button>
       </form>
+      <button onClick={resetAlert} style={{ marginTop: "10px" }}>
+        RESET
+      </button>
     </div>
   );
 };

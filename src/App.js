@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from './components/forms/form-two/Main'
+import Main from './components/forms/form-three/Main'
 
 const App = () => {
   return (

@@ -4,9 +4,14 @@ const Main = () => {
   const [age, setAge] = useState("");
   const [name, setName] = useState("");
   const [currentLanguage, setCurrentLanguage] = useState("english");
+  const [complete, setComplete] = useState(false);
 
   const changeLanguage = (newLanguage) => {
     setCurrentLanguage(newLanguage);
+  };
+
+  const handleChange = (e) => {
+    setComplete(e.target.value);
   };
 
   return (
@@ -26,9 +31,25 @@ const Main = () => {
         value={currentLanguage}
       >
         <option value="spanish">Spanish</option>
-        <option value="chinese" selected>Chinese</option>
+        <option value="chinese" selected>
+          Chinese
+        </option>
       </select>
+      <input
+        type="checkbox"
+        name="complete"
+        checked={complete}
+        onChange={(e) => {
+          handleChange({
+            target: {
+              name: e.target.name,
+              value: e.target.checked,
+            },
+          });
+        }}
+      />
       <p>{currentLanguage}</p>
+      <p>{complete ? "CHECKED" : "UNCHECKED"}</p>
     </div>
   );
 };

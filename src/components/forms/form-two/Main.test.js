@@ -50,3 +50,15 @@ test("select drop-downs must use the fireEvent.change", () => {
   expect(option1.selected).toBe(false);
   expect(option2.selected).toBe(true);
 });
+
+test("checkboxes  must use fireEvent.click", () => {
+  const handleChange = jest.fn();
+  const { container } = render(
+    <input type="checkbox" onChange={handleChange} />
+  );
+
+  const checkbox = container.firstChild;
+  fireEvent.click(checkbox);
+  expect(handleChange).toHaveBeenCalledTimes(1);
+  expect(checkbox.checked).toBe(true);
+});

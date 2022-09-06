@@ -15,3 +15,18 @@ test("onChange event in input field", () => {
   // ASSERT
   expect(input.value).toBe("20");
 });
+
+test("handleChange mock function in input field", () => {
+  // ARRANGE
+  const handleChange = jest.fn();
+  const { container } = render(<input type="text" onChange={handleChange} />);
+  const input = container.firstChild;
+  const testValue = "Samuel";
+
+  // ACT
+  fireEvent.change(input, { target: { value: testValue } });
+
+  // ASSERT
+  expect(handleChange).toHaveBeenCalledTimes(1);
+  expect(input.value).toBe("Samuel");
+});

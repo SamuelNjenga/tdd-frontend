@@ -32,3 +32,20 @@ test("deselectOption", async () => {
   expect(screen.getByText("B").selected).toBe(false);
   expect(screen.getByText("B").selected).not.toBe(true);
 });
+
+test("selectOptions", () => {
+  render(
+    <select multiple>
+      <option value="1">A</option>
+      <option value="2">B</option>
+      <option value="3">C</option>
+    </select>
+  );
+
+  userEvent.selectOptions(screen.getByRole("listbox"), ["1", "A"]);
+  userEvent.selectOptions(screen.getByRole("listbox"), ["2", "B"]);
+
+  expect(screen.getByRole("option", { name: "A" }).selected).toBe(true);
+  expect(screen.getByRole("option", { name: "B" }).selected).toBe(true);
+  expect(screen.getByRole("option", { name: "C" }).selected).toBe(false);
+});

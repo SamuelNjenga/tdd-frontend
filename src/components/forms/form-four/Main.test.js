@@ -23,3 +23,12 @@ test("clear effect via CLEAR button click event", async () => {
   expect(screen.getByRole("textbox")).toHaveValue("");
   expect(screen.getByRole("textbox")).not.toHaveValue("samuel");
 });
+
+test("deselectOption", async () => {
+  render(<Main />);
+
+  userEvent.deselectOptions(screen.getByRole("listbox"), "2");
+
+  expect(screen.getByText("B").selected).toBe(false);
+  expect(screen.getByText("B").selected).not.toBe(true);
+});

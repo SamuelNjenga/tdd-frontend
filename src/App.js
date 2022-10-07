@@ -1,11 +1,11 @@
 import React from "react";
-import Main from "./components/forms/form-five/Main";
+import Main from "./components/forms/form-six/Main";
 
 const App = () => {
   return (
     <div>
       <p>Test Driven Development in REACT</p>
-      <Main count={2} />
+      <Main firstName="John" lastName="Doe" />
     </div>
   );
 };

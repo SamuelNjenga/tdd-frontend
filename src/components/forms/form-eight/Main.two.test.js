@@ -166,7 +166,8 @@ test("to have focus", async () => {
       </div>
     </div>
   );
-  const input = getByTestId("element-to-focus");
+
+  const input = screen.getByTestId("element-to-focus");
 
   input.focus();
   expect(input).toHaveFocus();

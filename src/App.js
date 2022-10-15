@@ -1,6 +1,6 @@
 import React from "react";
 
-import Main from "./components/forms/form-twelve/Main";
+import Main from "./components/forms/form-thirteen/Main";
 
 const App = () => {
   return (
